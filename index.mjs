@@ -18,7 +18,7 @@ export default class SocketTools {
         if (!maxHttpBufferSize) maxHttpBufferSize = 1e8;
         if (!pingInterval) pingInterval = 25000;
         if (!pingTimeout) pingTimeout = 60000;
-        if (!modulesDir) modulesDir = path.join(process.cwd(), "modules/sockets");
+        if (!modulesDir) this.modulesDir = path.join(process.cwd(), "modules/sockets");
 
         if (!cors?.origin) cors.origin = "*";
         if (!cors?.methods) cors.methods = ["GET", "POST"];

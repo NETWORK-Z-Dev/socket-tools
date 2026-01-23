@@ -38,6 +38,12 @@ export default class SocketTools {
         this.loadSocketHandlers(this.modulesDir);
     }
 
+    getSocketIp(socket){
+        return socket?.handshake?.headers["x-forwarded-for"]?.split(",")[0].trim()
+            || socket?.handshake?.headers["x-real-ip"]
+            || socket?.handshake?.address;
+    }
+
     listen({
                onDisconnect = null,
                onConnection = null
